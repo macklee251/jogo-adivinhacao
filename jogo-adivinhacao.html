@@ -80,7 +80,7 @@
 
     input {
       background-color: #dce2e9;
-      width: 5rem;
+      width: 6rem;
       border-radius: .4rem 0 0 .4rem;
     }
 
@@ -90,21 +90,52 @@
       font-weight: bold;
       border-radius: 0 .4rem .4rem 0;
     }
+
+    .hide {
+      display: none;
+    }
+
+    .screen2 {
+      font-size: 2.0rem;
+      font-weight: normal;
+      margin-bottom: 3.3rem;
+    }
+
+    .screen2 button {
+      border-radius: .4rem;
+      margin-top: 4rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
   <main>
-    <h1>Jogo de adivinhação</h1>
-    <p>
-      Adivinhe um número entre 0 e 10
-    </p>
-    <form>
-      <input type="text">
+
+    <div class="screen1 hide">
+
+
+      <h1>Jogo de adivinhação</h1>
+      <p>
+        Adivinhe um número entre 0 e 10
+      </p>
+      <form>
+        <input type="number">
+        <button>
+          Tentar
+        </button>
+      </form>
+    </div>
+
+    <div class="screen2">
+      <h2>
+        Acertou em 3 vezes!
+      </h2>
       <button>
-        Tentar
+        Jogar novamente
       </button>
-    </form>
+    </div>
+
   </main>
 </body>
 
