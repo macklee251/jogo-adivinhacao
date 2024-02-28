@@ -89,6 +89,7 @@
       color: #ffffff;
       font-weight: bold;
       border-radius: 0 .4rem .4rem 0;
+      transition: background .4s;
     }
 
     .hide {
@@ -106,13 +107,17 @@
       margin-top: 4rem;
       cursor: pointer;
     }
+
+    button:hover {
+      filter: brightness(.9);
+    }
   </style>
 </head>
 
 <body>
   <main>
 
-    <div class="screen1 hide">
+    <div class="screen1">
 
 
       <h1>Jogo de adivinhação</h1>
@@ -120,14 +125,14 @@
         Adivinhe um número entre 0 e 10
       </p>
       <form>
-        <input type="number">
-        <button>
+        <input id="inputNumber" type="number">
+        <button class="tentar" onclick="handleClick(event)">
           Tentar
         </button>
       </form>
     </div>
 
-    <div class="screen2">
+    <div class="screen2 hide">
       <h2>
         Acertou em 3 vezes!
       </h2>
@@ -137,6 +142,22 @@
     </div>
 
   </main>
+  <script>
+    const randomNumber = Math.floor(Math.random() * 10)
+    let attempts = 1
+
+    function handleClick(event) {
+      event.preventDefault()
+      const inputNumber = document.getElementById('inputNumber')
+      if(Number(inputNumber.value)==randomNumber){
+        document.querySelector('.screen1').classList.add('hide')
+        document.querySelector('.screen2').classList.remove('hide')
+      }
+
+      attempts++
+      console.log(randomNumber)
+    }
+  </script>
 </body>
 
 </html>
