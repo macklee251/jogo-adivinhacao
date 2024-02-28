@@ -136,14 +136,14 @@
       <h2>
         Acertou em 3 vezes!
       </h2>
-      <button>
+      <button class"Jogar_de_novo" onclick="playAgain()">
         Jogar novamente
       </button>
     </div>
 
   </main>
   <script>
-    const randomNumber = Math.floor(Math.random() * 10)
+    let randomNumber = Math.floor(Math.random() * 10)
     let attempts = 1
 
     function handleClick(event) {
@@ -152,10 +152,17 @@
       if(Number(inputNumber.value)==randomNumber){
         document.querySelector('.screen1').classList.add('hide')
         document.querySelector('.screen2').classList.remove('hide')
+        document.querySelector('.screen2 h2').innerText = `Acertou em ${attempts} tentativas!`
       }
 
       attempts++
       console.log(randomNumber)
+    }
+    function playAgain(){
+      randomNumber = Math.floor(Math.random() * 10)
+      document.querySelector('.screen1').classList.remove('hide')
+      document.querySelector('.screen2').classList.add('hide')
+      attempts = 1
     }
   </script>
 </body>
